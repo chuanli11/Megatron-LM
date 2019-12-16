@@ -1,3 +1,27 @@
+# Lambda Notes
+
+```
+# data preparation
+cd
+wget https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles.xml.bz2
+
+git clone https://github.com/attardi/wikiextractor.git
+cd wikiextractor
+python WikiExtractor.py ~/enwiki-latest-pages-articles.xml.bz2 --json
+
+
+cd ..
+git clone https://github.com/chuanli11/Megatron-LM.git
+cd Megatron-LM
+
+virtualenv bert_env
+source bert_env/bin/activate
+pip install -r requirements.txt
+
+python scripts/presplit_sentences_json.py ~/wikiextractor/text ~/data/wikitext
+
+```
+
 Megatron is a large, powerful transformer. This repo is for ongoing research on training large, powerful transformer language models at scale. Currently, we support model-parallel, multinode training of [GPT2](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf) and [BERT](https://arxiv.org/pdf/1810.04805.pdf) in mixed precision. 
 
 Our codebase is capable of efficiently training a 72-layer, 8.3 Billion Parameter GPT2 Language model with 8-way model and 64-way data parallelism across 512 GPUs. We find that bigger language models are able to surpass current GPT2-1.5B wikitext perplexities in as little as 5 epochs of training.
