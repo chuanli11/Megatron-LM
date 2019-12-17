@@ -7,7 +7,7 @@ wget https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles.xml.
 
 git clone https://github.com/attardi/wikiextractor.git
 cd wikiextractor
-python WikiExtractor.py ~/enwiki-latest-pages-articles.xml.bz2 --json
+python WikiExtractor.py ~/enwiki-latest-pages-articles.xml.bz2 --json -o wikipedia -b 2G
 
 
 cd ..
