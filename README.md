@@ -18,8 +18,7 @@ virtualenv bert_env
 source bert_env/bin/activate
 pip install -r requirements.txt
 
-python scripts/presplit_sentences_json.py ~/wikiextractor/text ~/data/wikitext
-
+python scripts/presplit_sentences_json.py ~/wikiextractor/wikipedia/AA/wiki_00 wikipedia.json
 ```
 
 Megatron is a large, powerful transformer. This repo is for ongoing research on training large, powerful transformer language models at scale. Currently, we support model-parallel, multinode training of [GPT2](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf) and [BERT](https://arxiv.org/pdf/1810.04805.pdf) in mixed precision. 
