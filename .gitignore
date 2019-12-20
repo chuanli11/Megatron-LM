@@ -1,1 +1,5 @@
 __pycache__
+bert_env/*
+cache/*
+wikipedia.json
+wikipedia.lazy/*

@@ -52,7 +52,7 @@ def get_model(args):
     if mpu.get_data_parallel_rank() == 0:
         print(' > number of parameters on model parallel rank {}: {}'.format(
             mpu.get_model_parallel_rank(),
-            sum([p.nelement() for p in model.parameters()])), flush=True)
+            sum([p.nelement() for p in model.parameters()])))
 
     # GPU allocation.
     model.cuda(torch.cuda.current_device())
@@ -406,7 +406,7 @@ def train(model, optimizer, lr_scheduler,
             time_str = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             rank = torch.distributed.get_rank()
             print('rank: {} | time: {} | exiting the program at iteration {}'.
-                  format(rank, time_str, iteration), flush=True)
+                  format(rank, time_str, iteration))
             exit()
 
     return iteration, skipped_iters
@@ -586,6 +586,7 @@ def main():
     # Data stuff.
     train_data, val_data, test_data, args.tokenizer_num_tokens, \
         args.tokenizer_num_type_tokens = get_train_val_test_data(args)
+   
 
     # Model, optimizer, and learning rate.
     model, optimizer, lr_scheduler = setup_model_and_optimizer(args)
